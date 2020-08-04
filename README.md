@@ -26,3 +26,5 @@ git commit
 # Pushing
 git push
 
+# Access The Server Using An SSH Tunnel
+ ssh -N -L 8888:127.0.0.1:3000 -i "~/projects/keys/AWS_Key_Walter.pem" bitnami@ec2-34-232-65-80.compute-1.amazonaws.com
