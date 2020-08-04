@@ -10,6 +10,9 @@
   ***                 https://docs.bitnami.com/aws/                     ***
   *** Bitnami Forums: https://community.bitnami.com/                    ***
 
+# ssh to Bitnami Server
+ ssh -i "~/projects/keys/AWS_Key_Walter.pem" bitnami@ec2-34-232-65-80.compute-1.amazonaws.com
+ 
 # Pushing Changes to GitHub
 
 # Adding 
