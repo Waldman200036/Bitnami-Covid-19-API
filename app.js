@@ -1,10 +1,15 @@
 var createError = require('http-errors');
 var express = require('express');
 var Mongoose = require('mongoose');
-var db = Mongoose.createConnection('mongodb://root:WQ1H8kQCTGab@localhost/COVID_19_DB', {
+const bodyParser = require('body-parser');
+var db = Mongoose.createConnection('mongodb://localhost/covid19', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
+
+const CSSE = require('./models/CSSEModel');
+const CSSERouter = require('./routes/CSSERouter')(CSSE);
+
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
@@ -23,6 +28,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
+app.use(bodyParser.json());
+
+app.use('/api', CSSERouter);
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

@@ -5,7 +5,7 @@ const { Schema } = mongoose;
 const CSSE_COVID_19_daily_reports_US_Model = new Schema({
 
 	FIPS: {
-		type String,
+		type: String,
 	},
 	Admin2: {
 		type: String
@@ -37,7 +37,7 @@ const CSSE_COVID_19_daily_reports_US_Model = new Schema({
 	Incidence_Rate: { 
 		type: Number 
 	},
-	Case-Fatality_Ratio: { 
+	'Case-Fatality_Ratio': { 
 		type: Number 
 	},
 };
