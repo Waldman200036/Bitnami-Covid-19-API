@@ -1,7 +1,10 @@
 var createError = require('http-errors');
 var express = require('express');
 var Mongoose = require('mongoose');
-var db = Mongoose.createConnection('mongodb://root:WQ1H8kQCTGab@localhost/COVID_19_DB');
+var db = Mongoose.createConnection('mongodb://root:WQ1H8kQCTGab@localhost/COVID_19_DB', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
