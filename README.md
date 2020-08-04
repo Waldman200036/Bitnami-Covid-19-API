@@ -12,15 +12,21 @@
 
 # ssh to Bitnami Server
  ssh -i "~/projects/keys/AWS_Key_Walter.pem" bitnami@ec2-34-232-65-80.compute-1.amazonaws.com
- 
+
+
+# Change to app path
+ cd ~/stack/projects/covid19
+
 # Pushing Changes to GitHub
 
 # Adding 
 git add .
+
 git rm --cached source_data/COVID-19 -f
 
 # Staging
 git stage .
+
 git rm --cached source_data/COVID-19 -f
 
 # Commiting
