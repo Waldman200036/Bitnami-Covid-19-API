@@ -5,7 +5,7 @@ const { Schema } = mongoose;
 const CSSE_COVID_19_daily_reports_US_Model = new Schema({
 
 	Province_State: {
-		type String,
+		type: String,
 	},
 	Country_Region: {
 		type: String
