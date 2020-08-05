@@ -1,3 +1,4 @@
+/* jshint esversion: 6 */
 var createError = require('http-errors');
 var express = require('express');
 var Mongoose = require('mongoose');
@@ -7,8 +8,8 @@ var db = Mongoose.createConnection('mongodb://localhost/covid19', {
   useUnifiedTopology: true
 });
 
-const CSSE = require('./models/CSSEModel');
-const CSSERouter = require('./routes/CSSERouter')(CSSE);
+const CSSE = require('./models/CSSE_COVID_19_daily_reports');
+const CSSERouter = require('./routes/')(CSSE);
 
 var path = require('path');
 var cookieParser = require('cookie-parser');
