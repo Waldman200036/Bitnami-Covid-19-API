@@ -1,16 +1,24 @@
+/* jshint esversion: 6 */
+
 const express = require('express');
+const CSSERouter = express.Router();
 
 function routes(CSSE) {
-  const CSSERouter = express.Router();
+  CSSERouter.route('/')
+  .get(( req, res )=>{
+     res.send('Browsed to API Page');
+  });
+
   CSSERouter.route('/CSSEs')
     .get((req, res) => {
       const query = {};
-      CSSE.find(query, (err, CSSEs) => {
+           res.send('Browsed to API/CSSEs Page');
+/*       CSSE.find(query, (err, CSSEs) => {
         if (err) {
           return res.send(err);
         }
         return res.json(CSSEs);
-      });
+      }); */
     });
 
       return CSSERouter;

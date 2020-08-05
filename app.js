@@ -3,13 +3,13 @@ var createError = require('http-errors');
 var express = require('express');
 var Mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-var db = Mongoose.createConnection('mongodb://localhost/covid19', {
+/* var db = Mongoose.createConnection('mongodb://localhost/covid19', {
   useNewUrlParser: true,
   useUnifiedTopology: true
-});
+}); */
 
 const CSSE = require('./models/CSSE_COVID_19_daily_reports');
-const CSSERouter = require('./routes/')(CSSE);
+const CSSERouter = require('./routes/CSSERouter')(CSSE); 
 
 var path = require('path');
 var cookieParser = require('cookie-parser');
