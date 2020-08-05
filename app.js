@@ -1,14 +1,19 @@
+/* jshint esversion: 6 */
 var createError = require('http-errors');
 var express = require('express');
 var Mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-var db = Mongoose.createConnection('mongodb://localhost/covid19', {
+const debug = require('debug');
+
+const db = Mongoose.createConnection('mongodb://localhost/Covid19', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
 
-const CSSE = require('./models/CSSEModel');
-const CSSERouter = require('./routes/CSSERouter')(CSSE);
+ // debug(db);
+
+const CSSE = require('./models/CSSE_COVID_19_daily_reports');
+const CSSERouter = require('./routes/CSSERouter')(CSSE); 
 
 var path = require('path');
 var cookieParser = require('cookie-parser');
