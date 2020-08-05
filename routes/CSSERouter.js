@@ -13,12 +13,12 @@ function routes(CSSE) {
     .get((req, res) => {
       const query = {};
            res.send('Browsed to API/CSSEs Page');
-/*       CSSE.find(query, (err, CSSEs) => {
+      CSSE.find(query, (err, CSSEs) => {
         if (err) {
           return res.send(err);
         }
         return res.json(CSSEs);
-      }); */
+      });
     });
 
       return CSSERouter;
