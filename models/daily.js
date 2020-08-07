@@ -3,10 +3,10 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
-const CSSE_COVID_19_daily_reports_US_Model = new Schema({
+const dailyModel = new Schema({
 
 	Province_State: {
-		type: String,
+		type: String
 	},
 	Country_Region: {
 		type: String
@@ -61,4 +61,5 @@ const CSSE_COVID_19_daily_reports_US_Model = new Schema({
 	},
 });
 
-module.exports = mongoose.model('CSSE_COVID_19_daily_reports_US', CSSE_COVID_19_daily_reports_US_Model);
+module.exports = 
+mongoose.model('daily',dailyModel);

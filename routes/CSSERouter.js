@@ -2,8 +2,10 @@
 
 const express = require('express');
 const CSSERouter = express.Router();
+const debug = require('debug');
 
 function routes(CSSE) {
+  debug(CSSE);
   CSSERouter.route('/')
   .get(( req, res )=>{
      res.send('Browsed to API Page');
@@ -12,7 +14,7 @@ function routes(CSSE) {
   CSSERouter.route('/CSSEs')
     .get((req, res) => {
       const query = {};
-           res.send('Browsed to API/CSSEs Page');
+         //  res.send('Browsed to API/CSSEs Page');
       CSSE.find(query, (err, CSSEs) => {
         if (err) {
           return res.send(err);

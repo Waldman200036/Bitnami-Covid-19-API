@@ -4,7 +4,7 @@ var express = require('express');
 var Mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const chalk = require('chalk');
-const debug = require('debug');
+const debug = require('debug')('app');
 const port = process.env.PORT || 2500;
 
 const db = Mongoose.createConnection('mongodb://localhost/COVID_19_DB', {
@@ -12,13 +12,16 @@ const db = Mongoose.createConnection('mongodb://localhost/COVID_19_DB', {
   useUnifiedTopology: true
 });
 
-debug(db);
 
-const CSSE = require('./models/CSSE_COVID_19_daily_reports');
-const CSSERouter = require('./routes/CSSERouter')(CSSE); 
+debug(db);
+const CSSE = require('./models/daily');
+const CSSERouter = require('./routes/CSSERouter'); // (CSSE); 
+
 
 var path = require('path');
+
 var cookieParser = require('cookie-parser');
+
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
