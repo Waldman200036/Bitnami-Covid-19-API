@@ -12,7 +12,7 @@ const db = Mongoose.createConnection('mongodb://localhost/Covid19', {
   useUnifiedTopology: true
 });
 
- // debug(db);
+debug(db);
 
 const CSSE = require('./models/CSSE_COVID_19_daily_reports');
 const CSSERouter = require('./routes/CSSERouter')(CSSE); 
