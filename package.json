@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "DEBUG=app,app:* nodemon ./bin/www"
+    "start": "DEBUG=app,app:* node app.js",
+    "debug": "DEBUG=app,app:* nodemon app.js"
   },
   "dependencies": {
     "chalk": "4.1.0",

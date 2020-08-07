@@ -3,7 +3,9 @@ var createError = require('http-errors');
 var express = require('express');
 var Mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const chalk = require('chalk');
 const debug = require('debug');
+const port = process.env.PORT || 2500;
 
 const db = Mongoose.createConnection('mongodb://localhost/Covid19', {
   useNewUrlParser: true,
@@ -58,6 +60,10 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
+});
+
+app.listen(port, () => {
+  debug(`listening on port ${chalk.green(port)}`);
 });
 
 module.exports = app;
