@@ -7,7 +7,7 @@ const chalk = require('chalk');
 const debug = require('debug');
 const port = process.env.PORT || 2500;
 
-const db = Mongoose.createConnection('mongodb://localhost/Covid19', {
+const db = Mongoose.createConnection('mongodb://localhost/COVID_19_DB', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
