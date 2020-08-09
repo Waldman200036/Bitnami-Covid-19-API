@@ -13,9 +13,9 @@ const db = Mongoose.createConnection('mongodb://localhost/COVID_19_DB', {
 });
 
 
-debug(db);
-const CSSE = require('./models/daily');
-const CSSERouter = require('./routes/CSSERouter'); // (CSSE); 
+const daily = require('./models/daily');
+debug(daily);
+const dailyRouter = require('./routes/dailyRouter')(daily); 
 
 
 var path = require('path');
@@ -44,10 +44,10 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 
-app.use('/api', CSSERouter);
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/api',dailyRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
